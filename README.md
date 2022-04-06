@@ -1,6 +1,8 @@
 # `@rtsao/scc`
 
-Find strongly connected components of a directed graph using Tarjan's algorithm.
+Find strongly connected components of a directed graph using [Tarjan's algorithm](https://en.wikipedia.org/wiki/Tarjan%27s_strongly_connected_components_algorithm).
+
+This algorithm efficiently yields both a topological order and list of any cycles.
 
 ## Installation
 
@@ -27,4 +29,21 @@ const digraph = new Map([
 
 const components = scc(digraph);
 // [ Set { 'e' }, Set { 'd' }, Set { 'b', 'c', 'a' } ]
+```
+
+#### Illustration of example input digraph
+```
+┌───┐     ┌───┐
+│ d │ ◀── │ a │ ◀┐
+└───┘     └───┘  │
+  │         │    │
+  ▼         ▼    │
+┌───┐     ┌───┐  │
+│ e │     │ c │  │
+└───┘     └───┘  │
+            │    │
+            ▼    │
+          ┌───┐  │
+          │ b │ ─┘
+          └───┘
 ```
